@@ -105,7 +105,7 @@ services:
       - "443:443"
   # UI Application
   web-ui:
-    image: ghcr.io/turath-project/turath-inveniordm:v0.1
+    image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
@@ -129,7 +129,7 @@ services:
 
   # API Rest Application
   web-api:
-    image: ghcr.io/turath-project/turath-inveniordm:v0.1
+    image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
@@ -152,7 +152,7 @@ services:
 
   # Worker
   worker:
-    image: ghcr.io/turath-project/turath-inveniordm:v0.1
+    image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
