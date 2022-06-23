@@ -1,0 +1,14 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "turath-inveniordm_db",
+        "Group": "Servers",
+        "Host": "turath-inveniordm_db_1",
+        "Port": 5432,
+        "MaintenanceDB": "postgres",
+        "Username": "turath-inveniordm",
+        "SSLMode": "prefer"
+      }
+    }
+  }
+  
