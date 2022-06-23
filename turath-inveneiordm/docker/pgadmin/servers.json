@@ -1,12 +1,12 @@
 {
     "Servers": {
       "1": {
-        "Name": "turath-invneiordm_db",
+        "Name": "turath-inveniordm_db",
         "Group": "Servers",
-        "Host": "turath-invneiordm_db_1",
+        "Host": "turath-inveniordm_db_1",
         "Port": 5432,
         "MaintenanceDB": "postgres",
-        "Username": "turath-invneiordm",
+        "Username": "turath-inveniordm",
         "SSLMode": "prefer"
       }
     }
