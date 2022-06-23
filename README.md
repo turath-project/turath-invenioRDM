@@ -1,4 +1,4 @@
-# Turath InvneioRDM
+# Turath InvenioRDM
 
 Welcome to your InvenioRDM instance.
 
