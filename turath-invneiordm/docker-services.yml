@@ -5,7 +5,7 @@ services:
       context: ./
       args:
         - ENVIRONMENT=DEV
-    image: turath-inveniordm
+    image: turath-invneiordm
     restart: "unless-stopped"
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
@@ -16,12 +16,12 @@ services:
       - "INVENIO_CELERY_RESULT_BACKEND=redis://cache:6379/2"
       - "INVENIO_SEARCH_ELASTIC_HOSTS=['es:9200']"
       - "INVENIO_SECRET_KEY=CHANGE_ME"
-      - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://turath-inveniordm:turath-inveniordm@db/turath-inveniordm"
+      - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://turath-invneiordm:turath-invneiordm@db/turath-invneiordm"
       - "INVENIO_WSGI_PROXIES=2"
       - "INVENIO_RATELIMIT_STORAGE_URL=redis://cache:6379/3"
   frontend:
     build: ./docker/nginx/
-    image: turath-inveniordm-frontend
+    image: turath-invneiordm-frontend
     restart: "unless-stopped"
     ports:
       - "80"
@@ -36,9 +36,9 @@ services:
     image: postgres:12.4
     restart: "unless-stopped"
     environment:
-      - "POSTGRES_USER=turath-inveniordm"
-      - "POSTGRES_PASSWORD=turath-inveniordm"
-      - "POSTGRES_DB=turath-inveniordm"
+      - "POSTGRES_USER=turath-invneiordm"
+      - "POSTGRES_PASSWORD=turath-invneiordm"
+      - "POSTGRES_DB=turath-invneiordm"
     ports:
       - "5432:5432"
   pgadmin:
@@ -49,7 +49,7 @@ services:
       - "5051:443"
     environment:
       PGADMIN_DEFAULT_EMAIL: "mwkhashoggi+turath@fas.harvard.edu"
-      PGADMIN_DEFAULT_PASSWORD: "turath-inveniordm"
+      PGADMIN_DEFAULT_PASSWORD: "turath-invneiordm"
     volumes:
       - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
   mq:

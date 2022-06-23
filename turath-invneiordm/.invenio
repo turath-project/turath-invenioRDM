@@ -3,11 +3,11 @@ flavour = RDM
 logfile = /logs/invenio-cli.log
 
 [cookiecutter]
-project_name = Turath InvenioRDM
-project_shortname = turath-inveniordm
+project_name = Turath InvneioRDM
+project_shortname = turath-invneiordm
 project_site = projects.iq.harvard.edu/turath
 github_repo = turath-project/turath-inveniordm
-description = Turath InvenioRDM Instance
+description = Turath InvneioRDM Instance
 author_name = TURATH
 author_email = mwkhashoggi+turath@fas.harvard.edu
 year = 2022
