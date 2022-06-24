@@ -107,6 +107,7 @@ services:
   web-ui:
     image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
+    env_file: .env
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
       - "INVENIO_BROKER_URL=amqp://guest:guest@mq:5672/"
@@ -131,6 +132,7 @@ services:
   web-api:
     image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
+    env_file: .env
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
       - "INVENIO_BROKER_URL=amqp://guest:guest@mq:5672/"
@@ -154,6 +156,7 @@ services:
   worker:
     image: ghcr.io/turath-project/turath-inveniordm_app:v0.1
     restart: "unless-stopped"
+    env_file: .env
     environment:
       - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
       - "INVENIO_BROKER_URL=amqp://guest:guest@mq:5672/"
