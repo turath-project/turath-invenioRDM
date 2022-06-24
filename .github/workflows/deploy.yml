@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deployment
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deployment:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    environment: staging
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Docker swarm
+        uses: wshihadeh/docker-deployment-action@v2
+        with:
+          remote_docker_host: mohammed@${{ secrets.SSH_HOST }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+          deployment_mode: docker-swarm
+          copy_stack_file: true
+          stack_file_name: turath-inveniordm/turath-stack.yaml
+          keep_files: 5
+          args: turath
